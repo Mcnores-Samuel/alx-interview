@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """This module reads stdin line by line and computes metrics,
 printing them to stdout after every 10 lines read.
 """
