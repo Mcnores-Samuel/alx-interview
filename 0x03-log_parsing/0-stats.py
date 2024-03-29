@@ -12,7 +12,6 @@ def print_stats(status_codes, file_size):
         status_codes (dict): A dictionary containing status codes and their
             frequency.
         file_size (int): The total file size of the input.
-    
     Returns:
         None
     """
