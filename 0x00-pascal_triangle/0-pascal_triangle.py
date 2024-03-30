@@ -23,6 +23,7 @@ def calculate_pascal_bionomial_coefficient(n, k):
     return calculate_pascal_bionomial_coefficient(n - 1, k - 1) + \
         calculate_pascal_bionomial_coefficient(n - 1, k)
 
+
 def pascal_triangle(n):
     """Returns a list of lists representing the Pascal's triangle of size n.
 
@@ -34,6 +35,5 @@ def pascal_triangle(n):
     """
     if n <= 0:
         return []
-    return [[calculate_pascal_bionomial_coefficient(i, j)
-             for j in range(i + 1)]
-            for i in range(n)]
+    return ([[calculate_pascal_bionomial_coefficient(i, j)
+              for j in range(i + 1)] for i in range(n)])
