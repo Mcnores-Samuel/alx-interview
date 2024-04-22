@@ -6,8 +6,14 @@ const url = `https://swapi-api.hbtn.io/api/films/${process.argv[2]}`;
 
 request(url, async (error, response, body) => {
   const { characters } = JSON.parse(body);
+  if (error) {
+    console.log(error);
+  }
   const promises = characters.map((character) => new Promise((resolve, reject) => {
     request(character, (error, response, body) => {
+      if (error) {
+        reject(error);
+      }
       resolve(JSON.parse(body).name);
     });
   }));
