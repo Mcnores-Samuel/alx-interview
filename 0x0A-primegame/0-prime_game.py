@@ -5,10 +5,11 @@ function that determines the winner of a prime game.
 
 
 def isWinner(x, nums):
-    """Determines the winner of a prime game. The game is played by two players,
-    Maria and Ben. They play a game of prime numbers. The players take turns
-    picking a prime number from the list of numbers. The player who picks the
-    last prime number wins the game.
+    """Determines the winner of a prime game.
+    The game is played by two players, Maria and Ben.
+    They play a game of prime numbers. The players take turns
+    picking a prime number from the list of numbers.
+    The player who picks the last prime number wins the game.
 
     Args:
         x (int): The number of rounds.
