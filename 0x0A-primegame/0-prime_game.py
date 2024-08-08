@@ -18,41 +18,23 @@ def isWinner(x, nums):
         str: The name of the player who wins the game. If the game ends in a tie,
         return None.
     """
-    def is_prime(num):
-        """Determines if a number is prime.
-
-        Args:
-            num (int): The number to check.
-
-        Returns:
-            bool: True if the number is prime, False otherwise.
-        """
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-
-    maria_wins = 0
-    ben_wins = 0
-
-    for n in nums:
-        primes = [i for i in range(1, n + 1) if is_prime(i)]
-        turns = 0
-        while primes:
-            prime = primes[0]
-            primes = [p for p in primes if p % prime != 0]
-            turns += 1
-        
-        if turns % 2 == 1:
-            maria_wins += 1
-        else:
-            ben_wins += 1
-
-    if maria_wins > ben_wins:
-        return "Maria"
-    elif ben_wins > maria_wins:
-        return "Ben"
-    else:
+    if x < 1 or not nums:
         return None
+    marias_wins, bens_wins = 0, 0
+    # generate primes with a limit of the maximum number in nums
+    n = max(nums)
+    primes = [True for _ in range(1, n + 1, 1)]
+    primes[0] = False
+    for i, is_prime in enumerate(primes, 1):
+        if i == 1 or not is_prime:
+            continue
+        for j in range(i + i, n + 1, i):
+            primes[j - 1] = False
+    # filter the number of primes less than n in nums for each round
+    for _, n in zip(range(x), nums):
+        primes_count = len(list(filter(lambda x: x, primes[0: n])))
+        bens_wins += primes_count % 2 == 0
+        marias_wins += primes_count % 2 == 1
+    if marias_wins == bens_wins:
+        return None
+    return 'Maria' if marias_wins > bens_wins else 'Ben'
