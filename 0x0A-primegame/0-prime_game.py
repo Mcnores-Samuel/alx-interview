@@ -16,7 +16,8 @@ def isWinner(x, nums):
         nums (list of int): A list of n integers.
 
     Returns:
-        str: The name of the player who wins the game. If the game ends in a tie,
+        str: The name of the player who wins the game.
+        If the game ends in a tie,
         return None.
     """
     if x < 1 or not nums:
