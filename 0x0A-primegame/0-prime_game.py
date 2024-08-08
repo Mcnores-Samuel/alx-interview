@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""Prime Game module. This module contains a function that determines the winner
-of a prime game.
+"""Prime Game module. This module contains a
+function that determines the winner of a prime game.
 """
 
 
@@ -38,3 +38,4 @@ def isWinner(x, nums):
     if marias_wins == bens_wins:
         return None
     return 'Maria' if marias_wins > bens_wins else 'Ben'
+
