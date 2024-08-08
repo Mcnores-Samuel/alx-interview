@@ -1,24 +1,10 @@
 #!/usr/bin/python3
-"""Prime Game module. This module contains a
-function that determines the winner of a prime game.
+"""Prime game module.
 """
 
 
 def isWinner(x, nums):
-    """Determines the winner of a prime game.
-    The game is played by two players, Maria and Ben.
-    They play a game of prime numbers. The players take turns
-    picking a prime number from the list of numbers.
-    The player who picks the last prime number wins the game.
-
-    Args:
-        x (int): The number of rounds.
-        nums (list of int): A list of n integers.
-
-    Returns:
-        str: The name of the player who wins the game.
-        If the game ends in a tie,
-        return None.
+    """Determines the winner of a prime game session with `x` rounds.
     """
     if x < 1 or not nums:
         return None
@@ -40,4 +26,3 @@ def isWinner(x, nums):
     if marias_wins == bens_wins:
         return None
     return 'Maria' if marias_wins > bens_wins else 'Ben'
-
